@@ -1,3 +1,5 @@
+<!-- π -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +9,7 @@
     <link rel="stylesheet" href="index.css">
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <script defer src="index.js"></script>
-    <title>	πnake</title>
+    <title>Snake</title>
 </head>
 <body>
     <main>
@@ -18,27 +20,33 @@
                 <form>
                     <fieldset id="difficulty">
                         <legend>Difficulty:</legend>
-                        <input type="radio" id="Easy"> Easy </input>
-                        <input type="radio" id="Hard"> Hard </input>
+                        <input type="radio" id="easy" name="difficultySelector" value="easy"> Easy </input>
+                        <input type="radio" id="hard" name="difficultySelector" value="hard"> Hard </input>
                     </fieldset>
                 </form>
                 <div class="scoreDisplay">Score: <span id="currentScore">0</span></div>
                 <form>
                     <fieldset id="fieldSize">
                         <legend>Field Size:</legend>
-                        <input type="radio" id="smallfield"> Small </input>
-                        <input type="radio" id="largefield"> Large </input>
+                        <input type="radio" id="smallField" name="fieldSizeSelector" value="smallField"> Small </input>
+                        <input type="radio" id="largeField" name="fieldSizeSelector" value="largeField"> Large </input>
                     </fieldset>
                 </form>
             </div>
+
+            <table id="gameGridHere">
+                <!-- This is where the game grid populates when the player chooses small or large -->
+            </table>
         </div>
 
 <!-- This is the right side bar on the screen that shows the title, high score, average score, and game records. -->        
         <aside>
             <header>
                 <p>Welcome to</p>
-                <p id="title">πnake</p>
+                <p id="title">Snake</p>
             </header>
+            <br>
+            <p>First choose a difficulty and field size, then press any arrow button to start! (WASD also works!)</p>
             <br>
             <div id = "highScoreAndAverageScore">
                 High score: <span id = "highScoreValue"></span>
@@ -50,18 +58,20 @@
                 Records:
                 <ul id="records">
                     <!-- this is where li children will append when each game ends -->
+
                 </ul>
             </div>
-
         </aside>
     </main>
+
+<!-- This is the footer where the credits, social media links, etc. are housed -->
     <footer>
         <div id="credits">
             <span class="credits"> Created by: Alexa Mullin </span>
             <span class="credits"> Music by: Cody Kestner </span> 
         </div>
         <div>
-            <embed src="" loop="true" autostart="true" width="2" height="0"> <!-- music -->
+            <audio src="lex_song.mp3" controls controlsList="nodownload" loop="true" autoplay="false"> <!-- music -->
         </div>
         <div>
             <a
