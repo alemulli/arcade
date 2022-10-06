@@ -55,6 +55,14 @@ td {
     border: 1px solid #2b2b2b;
 }
 
+.snake {
+    background-color: limegreen;
+}
+
+.apple {
+    background-color: red;
+}
+
 /* Game info elements  */
 
 aside {
