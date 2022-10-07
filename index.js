@@ -129,6 +129,8 @@ function startGame() {
       interval = setInterval(moveSnake, 5000 / speed);
       game = "notready";
     }
+    difficultyEasy.disabled = true;
+    difficultyHard.disabled = true;
   }
 }
 
@@ -350,6 +352,9 @@ function gameOver() {
   scoreRecords.forEach((element) => createNewListItemAndAppend(element));
 
   document.getElementById("playAgain").style.display = "block";
+
+  difficultyEasy.disabled = false;
+  difficultyHard.disabled = false;
 }
 
 ////// Resetting the board if the player clicks play again //////
