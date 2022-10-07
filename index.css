@@ -41,6 +41,13 @@ main {
   font-size: 2em;
 }
 
+#tableWithin {
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  height: 100%;
+}
+
 #gameGridHere {
   flex-grow: 1;
 }

@@ -30,13 +30,9 @@ const difficultyHard = document.getElementById("hard");
 
 function setDifficulty() {
   if (difficultyEasy.checked === true) {
-    speed = 30;
-    difficultyEasy.disabled = true;
-    difficultyHard.disabled = true;
+    console.log(speed);
   } else if (difficultyHard.checked === true) {
     speed = 50;
-    difficultyEasy.disabled = true;
-    difficultyHard.disabled = true;
   }
 }
 
@@ -52,8 +48,10 @@ const fieldSizeLarge = document.getElementById("largeField");
 
 function createGameField() {
   if (fieldSizeSmall.checked === true) {
+    clearGrid();
     let size = 10;
     small = true;
+    large = false;
     for (let i = 0; i < size; i++) {
       const newTr = document.createElement("tr");
       for (let j = 0; j < size; j++) {
@@ -62,8 +60,6 @@ function createGameField() {
       }
       gameGridHere.appendChild(newTr);
     }
-    fieldSizeSmall.disabled = true;
-    fieldSizeLarge.disabled = true;
 
     document
       .getElementsByTagName("tr")
@@ -74,8 +70,10 @@ function createGameField() {
       [gameState.apple[1]].getElementsByTagName("td")
       [gameState.apple[0]].classList.add("apple");
   } else if (fieldSizeLarge.checked === true) {
+    clearGrid();
     let size = 20;
     large = true;
+    small = false;
     for (let i = 0; i < size; i++) {
       const newTr = document.createElement("tr");
       for (let j = 0; j < size; j++) {
@@ -84,8 +82,6 @@ function createGameField() {
       }
       gameGridHere.appendChild(newTr);
     }
-    fieldSizeSmall.disabled = true;
-    fieldSizeLarge.disabled = true;
     document
       .getElementsByTagName("tr")
       [gameState.snake.head[1]].getElementsByTagName("td")
@@ -95,6 +91,10 @@ function createGameField() {
       [gameState.apple[1]].getElementsByTagName("td")
       [gameState.apple[0]].classList.add("apple");
   }
+}
+
+function clearGrid() {
+  gameGridHere.innerHTML = "";
 }
 
 fieldSizeSelector.addEventListener("click", createGameField);
@@ -125,7 +125,7 @@ document.addEventListener("keydown", function (press) {
 
 function startGame() {
   if (game === "ready") {
-    if (fieldSizeSmall.disabled === true || fieldSizeLarge.disable === true) {
+    if (small === true || large === true) {
       interval = setInterval(moveSnake, 5000 / speed);
       game = "notready";
     }
@@ -312,7 +312,6 @@ function gameOver() {
     document.getElementsByTagName("td")[i].classList.add("dead");
   }
   score = gameState.snake.sLength;
-  console.log(score);
   if (highScore === undefined || highScore < score) {
     highScore = score;
   }
@@ -331,7 +330,9 @@ function gameOver() {
   if (scoreRecords.length === 0) {
     averageScore = score;
   } else {
-    averageScore = parseFloat((sumTheArray(scoreRecordsCopy) / scoreRecords.length).toFixed(2));
+    averageScore = parseFloat(
+      (sumTheArray(scoreRecordsCopy) / scoreRecords.length).toFixed(2)
+    );
   }
 
   document.getElementById("averageScoreValue").innerText = `${averageScore}`;
