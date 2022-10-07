@@ -18,6 +18,7 @@ let oldHeadX;
 let oldHeadY;
 let removedBodyPart;
 let scoreRecords = [];
+let game = "ready";
 
 const scoreDisplay = document.getElementById("currentScore");
 
@@ -123,12 +124,15 @@ document.addEventListener("keydown", function (press) {
 ////// Starting the Game //////
 
 function startGame() {
-  if (fieldSizeSmall.disabled === true || fieldSizeLarge.disable === true) {
-    interval = setInterval(moveSnake, 5000 / speed);
+  if (game === "ready") {
+    if (fieldSizeSmall.disabled === true || fieldSizeLarge.disable === true) {
+      interval = setInterval(moveSnake, 5000 / speed);
+      game = "notready";
+    }
   }
 }
 
-gameGridHere.addEventListener("click", startGame);
+document.addEventListener("keyup", startGame);
 
 ////// Moving the snake //////
 
@@ -327,7 +331,7 @@ function gameOver() {
   if (scoreRecords.length === 0) {
     averageScore = score;
   } else {
-    averageScore = sumTheArray(scoreRecordsCopy) / scoreRecords.length;
+    averageScore = parseFloat((sumTheArray(scoreRecordsCopy) / scoreRecords.length).toFixed(2));
   }
 
   document.getElementById("averageScoreValue").innerText = `${averageScore}`;
@@ -370,6 +374,7 @@ function resetTheBoard() {
     .getElementsByTagName("tr")
     [gameState.apple[1]].getElementsByTagName("td")
     [gameState.apple[0]].classList.add("apple");
+  game = "ready";
 }
 
 playAgain.addEventListener("click", resetTheBoard);
