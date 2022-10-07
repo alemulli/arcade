@@ -347,6 +347,8 @@ function gameOver() {
   }
 
   scoreRecords.forEach((element) => createNewListItemAndAppend(element));
+
+  document.getElementById("playAgain").style.display = "block";
 }
 
 ////// Resetting the board if the player clicks play again //////
