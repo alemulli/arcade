@@ -42,25 +42,29 @@ main {
 }
 
 #gameGridHere {
-    flex-grow: 1;
+  flex-grow: 1;
 }
 
 table {
-    border: 1px solid #2b2b2b;
+  border: 1px solid #2b2b2b;
 }
 
 td {
-    height: 10px;
-    width: 10px;
-    border: 1px solid #2b2b2b;
+  height: 10px;
+  width: 10px;
+  border: 1px solid #2b2b2b;
 }
 
 .snake {
-    background-color: limegreen;
+  background-color: limegreen;
 }
 
 .apple {
-    background-color: red;
+  background-color: red;
+}
+
+.dead {
+  background-color: darkred;
 }
 
 /* Game info elements  */
@@ -89,12 +93,29 @@ header {
 }
 
 #recordsBox {
-    flex-grow: 1;
-    overflow: auto;
+  flex-grow: 1;
+  overflow: auto;
+}
+
+#playAgain {
+  background-color: black;
+  color: limegreen;
+  width: 70%;
+  align-self: center;
+}
+
+#playAgain:hover {
+  background-color: #2b2b2b;
+  color: white;
 }
 
 #records {
-  list-style-type: none;
+  list-style-type: circle;
+}
+
+li {
+  padding: 2%;
+  color: black;
 }
 
 #highScoreAndAverageScore {

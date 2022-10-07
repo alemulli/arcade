@@ -8,8 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
-    <script defer src="index.js"></script>
     <title>Snake</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <script defer src="index.js"></script>
+
 </head>
 <body>
     <main>
@@ -46,7 +48,7 @@
                 <p id="title">Snake</p>
             </header>
             <br>
-            <p>First choose a difficulty and field size, then press any arrow button to start! (WASD also works!)</p>
+            <p>First choose a difficulty and field size, then click the game grid to start. Use the arrow keys or WASD to move your snake.</p>
             <br>
             <div id = "highScoreAndAverageScore">
                 High score: <span id = "highScoreValue"></span>
@@ -54,11 +56,12 @@
                 Average Score: <span id = "averageScoreValue"></span>
             </div>
             <br>
+            <button id="playAgain">Play again?</button>
+            <br>
             <div id="recordsBox">
                 Records:
                 <ul id="records">
                     <!-- this is where li children will append when each game ends -->
-
                 </ul>
             </div>
         </aside>
@@ -71,11 +74,11 @@
             <span class="credits"> Music by: Cody Kestner </span> 
         </div>
         <div>
-            <audio src="lex_song.mp3" controls controlsList="nodownload" loop="true" autoplay="false"> <!-- music -->
+            <audio src="lex_song.mp3" controls controlsList="nodownload" loop="true" autoplay="true"> <!-- music -->
         </div>
         <div>
             <a
-            href="https://www.linkedin.com/in/alexa-mullin-14740817a/"
+            href="#"
             target="_blank"
             ><img
              src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/2048px-LinkedIn_icon.svg.png"
@@ -89,7 +92,7 @@
                 class="socialMedia"
             /></a>
             <a
-            href="https://amullin.netlify.app/"
+            href="#"
             target="_blank"
             ><img
              src="https://cdn.iconscout.com/icon/free/png-256/smile-2689437-2232238.png"
