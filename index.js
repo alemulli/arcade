@@ -9,7 +9,7 @@ let gameState = {
 
 let score = gameState.snake.sLength;
 let speed = 30;
-let direction = "up";
+let direction = "none";
 let highScore = undefined;
 let averageScore = undefined;
 let small;
@@ -364,7 +364,7 @@ function resetTheBoard() {
   gameState.snake.head[0] = 6;
   gameState.snake.head[1] = 7;
   gameState.snake.sLength = 0;
-  direction = "right";
+  direction = "none";
   scoreDisplay.innerText = gameState.snake.sLength;
   document
     .getElementsByTagName("tr")
